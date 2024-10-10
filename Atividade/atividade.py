@@ -4,25 +4,21 @@ lista = [random.randint(1, 100) for _ in range(5)]
 
 def main():
 
-    def adicionar_na_lista(lista):
-        adicionar_na_lista = int(input('Digite o número inteiro que você deseja adicionar na lista: '))
-        lista.append(adicionar_na_lista)
+    def adicionar_numero(lista, numero):
+        lista.append(numero)
+        print(f"Número {numero} adicionado à lista.")
 
-    def remover_da_lista(lista):
-            try:
-                remover_da_lista = int(input('Digite o número inteiro que você deseja remover da lista: '))
-                lista.remove(remover_da_lista)
-            except ValueError:
-                print('O número digitado não existe na lista!')
+    def remover_numero(lista, numero):
+        try:
+            lista.remove(numero)
+            print(f"Número {numero} removido da lista.")
+        except ValueError:
+            print(f"Número {numero} não existe na lista.")
 
-    def exibir_lista(lista):
-        print(lista)
+        def exibir_lista(lista):
+            print("Lista atual:", lista)
+
     
-    def calcular_soma(lista):
-        soma = 0
-        for numero in lista:
-            soma += numero
-            return soma
 
 
 
@@ -38,12 +34,30 @@ def main():
         operacao = input('Digite a operação que você deseja realizar: ')
 
 
-        if operacao == 1:
-            def adicionar_na_lista(lista)
-        elif operacao == 2:
-            def remover_da_lista(lista)
-                
-            break
+        if opcao == "1":
+            numero = int(input("Digite o número a ser adicionado: "))
+            adicionar_numero(lista, numero)
+        elif opcao == "2":
+            numero = int(input("Digite o número a ser removido: "))
+            remover_numero(lista, numero)
+        elif opcao == "3":
+            exibir_lista(lista)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
