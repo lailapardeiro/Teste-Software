@@ -2,27 +2,30 @@
 import random
 lista = [random.randint(1, 100) for _ in range(5)]
 
+def adicionar_numero(lista, numero):
+    lista.append(numero)
+    print(f"Número {numero} adicionado à lista.")
+
+def remover_numero(lista, numero):
+        lista.remove(numero)
+        print(f"Número {numero} removido da lista.")
+
+
+def exibir_lista(lista):
+    print("Lista atual:", lista)
+
+def calcular_soma(lista):
+    return sum(lista)
+
+
+def calcular_media(lista):
+    if lista:
+        return sum(lista) / len(lista)
+    else:
+        print("A lista está vazia, não foi possível calcular a média.")
+
+
 def main():
-
-    def adicionar_numero(lista, numero):
-        lista.append(numero)
-        print(f"Número {numero} adicionado à lista.")
-
-    def remover_numero(lista, numero):
-        try:
-            lista.remove(numero)
-            print(f"Número {numero} removido da lista.")
-        except ValueError:
-            print(f"Número {numero} não existe na lista.")
-
-        def exibir_lista(lista):
-            print("Lista atual:", lista)
-
-    
-
-
-
-
     while True: 
         print('Operações: ')
         print('1. Adicionar um número à lista.')
@@ -34,31 +37,31 @@ def main():
         operacao = input('Digite a operação que você deseja realizar: ')
 
 
-        if opcao == "1":
+        if operacao == "1":
             numero = int(input("Digite o número a ser adicionado: "))
             adicionar_numero(lista, numero)
-        elif opcao == "2":
-            numero = int(input("Digite o número a ser removido: "))
-            remover_numero(lista, numero)
-        elif opcao == "3":
+        elif operacao == "2":
+            try:
+                numero = int(input("Digite o número a ser removido: "))
+                remover_numero(lista, numero)
+            except ValueError:
+                print(f"Número {numero} não existe na lista.")
+
+
+        elif operacao == "3":
             exibir_lista(lista)
+        elif operacao == "4":
+            soma = calcular_soma(lista)
+            print(f"Soma dos números da lista: {soma}")
 
+        elif operacao == "5":
+            media = calcular_media(lista)
+            print(f"Média dos números da lista: {media:.2f}")
+        elif operacao == "6":
+            print("Saindo do programa...")
+            break
+        else:
+            print("Operação inválida. Tente novamente!")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+if __name__ == "__main__":
+    main()
